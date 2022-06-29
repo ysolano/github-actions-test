@@ -1,0 +1,28 @@
+name: Yerson
+age: 35
+address: "cartago: costarica"
+active: true
+key:
+    key: value
+    key2: 33
+    key3:
+        key: value
+        key2: value
+jsonObject: {key: value, key2: 33, key3:{keu:value, key2: value}}
+array:
+    - item1
+    - item2
+    - {key: value}
+jsonArray: [item1, item2]
+objectsArray:
+    - key: value
+      key2: value2
+    - key: value
+longText: >
+    kjlasdkfhal kjsdflkjahsflkjahsfdlkjahsfjhasjkdfl
+    ahsdfj asjkdfh asfjhasjkdfhjklashdfkjlahsdfklj
+    ahsdf aksjdf aksdjf askdf akjsdhf
+longText2: |
+    kjlasdkfhal kjsdflkjahsflkjahsfdlkjahsfjhasjkdfl
+    ahsdfj asjkdfh asfjhasjkdfhjklashdfkjlahsdfklj
+    ahsdf aksjdf aksdjf askdf akjsdhf
