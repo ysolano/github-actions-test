@@ -1,8 +1,26 @@
 name: Actions Workflow
 
 on:
-    repository_dispatch:
-        types: [build]
+    push:
+        branches:
+            - master
+            - "feature/*" # matches feature/featA, feature/featB, doesn't match feature/feat/a
+            - "feature/**" # matches feature/featA, feature/featB, feature/feat/a
+            - "!feature/featC" # this branch will be ignore
+            # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet
+            # branches-ignore: # branches and branches-ignore are not allowed to be both at same time
+            #   - 'spike/'
+        tags: # similar than branches
+            - v1.*
+        # tags-ignore: # tags and tags-ignore are not allowed to be both at same time
+        #   - ""
+        paths:
+            - "**.js" # matches JavaScripts files
+            - "!**.docs" # ignore docs files
+        # paths-ignore: # paths and paths-ignore are not allowed to be both at same time
+        #   - ""
+    # repository_dispatch:
+    #     types: [build]
     # schedule:
     #     - cron: "*/5 * * * *"
     #     - cron: "*/6 * * * *"
