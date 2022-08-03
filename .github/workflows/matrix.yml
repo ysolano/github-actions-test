@@ -11,7 +11,7 @@ jobs:
             # all node-version will error even if there is an error
             fail-fast: true
             # Limits the number of threats running in parallel
-            max-parallel: 2
+            max-parallel: 0
         runs-on: ${{ matrix.os }}
         steps:
             - name: Log node version
