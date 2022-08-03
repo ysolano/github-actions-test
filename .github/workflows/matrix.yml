@@ -4,6 +4,7 @@ on: push
 jobs:
     node-version:
         strategy:
+            # Strategy variables
             matrix:
                 os: [macos-latest, ubuntu-latest, windows-latest]
                 node-version: [6, 8, 10]
