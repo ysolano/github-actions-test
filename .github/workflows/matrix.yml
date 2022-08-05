@@ -8,11 +8,22 @@ jobs:
             matrix:
                 os: [macos-latest, ubuntu-latest, windows-latest]
                 node-version: [6, 8, 10]
+                # Include extra variables for an configuration that exists in the matrix
+                include:
+                    - os: ubuntu-latest
+                      node-version: 8
+                      is_ubunto_8: "true"
+                # Excludes combinations
+                exclude:
+                    - os: ubuntu-latest
+                      node-version: 6
             # all node-version will error even if there is an error
             fail-fast: true
             # Limits the number of threats running in parallel
             max-parallel: 0
         runs-on: ${{ matrix.os }}
+        env:
+            IS_UBUNTO_8: ${{ matrix.is_ubunto_8 }}
         steps:
             - name: Log node version
               run: node -v
@@ -20,4 +31,6 @@ jobs:
               with:
                   node-version: ${{ matrix.node_version }}
             - name: Log node version
-              run: node -v
+              run: |
+                  node -v
+                  echo $IS_UBUNTO_8
